@@ -6,40 +6,47 @@
     <title>Login - Hulu</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="login-container">
         <h2>Login to Hulu</h2>
-        <form action="/path-to-your-login-handler" method="POST">
+        <!-- Error message div -->
+        <div id="error-message" style="color: red; display: none;">Username or password is incorrect.</div>
+        <!-- Note the 'id' attribute for the form -->
+        <form id="login-form">
+
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
-            </div>            
+            </div>
+
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+
             <button type="submit">Login</button>
         </form>
-    </div>
-</body>
-</html>
 
-<script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-    
-        // Retrieving user input
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-    
-        // Checking credentials
-        if(username === 'janedoe123' && password === '1234') {
-            // Credentials are correct, redirect to a new page
-            window.location.href = 'success.html'; // Replace 'success.html' with your target page
-        } else {
-            // Credentials are incorrect, show error message
-            document.getElementById('error-message').style.display = 'block';
-        }
-    });
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            console.log("Attempting login with", username, password); // Helps in debugging
+            if(username === 'janedoe123' && password === '1234') {
+                console.log("Login successful, redirecting..."); // Debug log
+                window.location.replace('home.html'); // Change here
+            } else {
+                console.log("Login failed, showing error."); // Debug log
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
     </script>
     
+    
+</body>
+</html>
