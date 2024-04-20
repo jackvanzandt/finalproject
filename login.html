@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="login-body">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Hulu</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="code/style.css">
 </head>
 
-<body>
-    <div class="login-container">
+<body class="centered-page">
+    <div class="centered-form">
         <h2>Login to Hulu</h2>
         <div id="error-message" style="color: red; display: none;">Username or password is incorrect.</div>
         <form id="login-form">
@@ -34,12 +34,12 @@
             
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-            console.log("Attempting login with", username, password); // Helps in debugging
+            console.log("Attempting login with", username, password);
             if(username === 'janedoe123' && password === '1234') {
-                console.log("Login successful, redirecting..."); // Debug log
-                window.location.replace('home.html'); // Change here
+                console.log("Login successful"); // Debug log
+                window.location.replace('home.html');
             } else {
-                console.log("Login failed, showing error."); // Debug log
+                console.log("Login failed"); // Debug log
                 document.getElementById('error-message').style.display = 'block';
             }
         });
