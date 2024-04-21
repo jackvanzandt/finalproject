@@ -15,4 +15,3 @@ oci_free_statement($stid);
 oci_close($conn);
 
 echo json_encode($directors);
-?>

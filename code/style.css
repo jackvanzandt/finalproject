@@ -153,3 +153,21 @@ header .search-icon, header .dropbtn {
 .index-body, .login-body {
     background-image: linear-gradient(to bottom, #000000, #0f9b0f);
 }
+
+.directors-container {
+    display: flex;
+    justify-content: space-around; /* This spreads the items evenly across the container */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
+    width: 100%; /* Ensure the container takes the full width */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.director-item {
+    flex: 1; /* This allows the boxes to grow and take up available space */
+    max-width: calc(33.333% - 40px); /* Subtract the sum of left and right padding/margins */
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background: white;
+    text-align: center;
+    padding: 10px;
+}
