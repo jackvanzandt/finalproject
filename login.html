@@ -10,8 +10,8 @@
 <body class="centered-page">
     <div class="centered-form">
         <h2>Login to Hulu</h2>
-        <div id="error-message" style="color: red; display: none;">Username or password is incorrect.</div>
-        <form id="login-form">
+        <div id="error-message" style="color: red; display: none;"></div>
+        <form id="login-form" action="code/login.php" method="POST">
 
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -25,26 +25,39 @@
 
             <button type="submit">Login</button>
         </form>
-
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            console.log("Attempting login with", username, password);
-            if(username === 'janedoe123' && password === '1234') {
-                console.log("Login successful"); // Debug log
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(document.getElementById('login-form'));
+
+        fetch('code/login.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                console.log("Login successful", data.message);
                 window.location.replace('home.html');
             } else {
-                console.log("Login failed"); // Debug log
+                document.getElementById('error-message').textContent = data.message;
                 document.getElementById('error-message').style.display = 'block';
             }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('error-message').textContent = 'Error processing your request.';
+            document.getElementById('error-message').style.display = 'block';
         });
+    });
     </script>
-    
-    
 </body>
 </html>

@@ -66,9 +66,9 @@
         .catch(error => console.error('Error fetching directors:', error));
         }
         
-    function displayContent(data, contentType) {
+        function displayContent(data, contentType) {
         const contentDiv = document.getElementById('main-content');
-        contentDiv.innerHTML = ''; 
+        contentDiv.innerHTML = ''; // Clear previous content
 
     if (contentType === 'Directors' && data.length > 0) {
         let directorsList = '<div class="directors-container">';
@@ -79,6 +79,18 @@
         });
         directorsList += '</div>';
         contentDiv.innerHTML = directorsList;
+    } else if (contentType === 'Movies') {
+        let moviesList = '<div class="movies-container">';
+        data.forEach(movie => {
+            moviesList += `<div class="movie-item">
+                <h3>${movie.TITLE}</h3>
+                <p>${movie.SUMMARY}</p>
+                <p>Released: ${movie.RELEASE_YEAR}</p>
+                <p>Director: ${movie.director_name}</p>
+            </div>`;
+        });
+        moviesList += '</div>';
+        contentDiv.innerHTML = moviesList;
     } else {
         data.forEach(item => {
             const description = item.DESCRIPTION || item.SUMMARY || 'No description available';
@@ -90,6 +102,7 @@
         });
     }
 }
+
 
 
 
