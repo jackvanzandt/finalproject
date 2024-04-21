@@ -23,7 +23,6 @@
             <a href="#" id="movies-link">Movies</a>
             <a href="#" id="tv-shows-link">TV Shows</a>
             <a href="#" id="directors-link">Directors</a>
-            <a href="#" id="mystuff-link">My Stuff</a>
         </nav>
         <h1>Welcome to Hulu</h1>
     </div>
@@ -71,7 +70,7 @@
     const contentDiv = document.getElementById('main-content');
     contentDiv.innerHTML = ''; // Clear previous content
 
-    if (contentType === 'Directors' && data.length > 0) { // Check if there are directors to display
+    if (contentType === 'Directors' && data.length > 0) {
         let directorsList = '<div class="directors-container">';
         data.forEach(director => {
             directorsList += `<div class="director-item">
@@ -91,6 +90,7 @@
         });
     }
 }
+
 
 
         </script>

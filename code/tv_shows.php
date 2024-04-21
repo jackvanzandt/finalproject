@@ -14,6 +14,5 @@ while ($row = oci_fetch_assoc($stid)) {
 oci_free_statement($stid);
 oci_close($conn);
 
-header('Content-Type: application/json');
 echo json_encode($tv_shows);
 

@@ -156,15 +156,15 @@ header .search-icon, header .dropbtn {
 
 .directors-container {
     display: flex;
-    justify-content: space-around; /* This spreads the items evenly across the container */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line as needed */
-    width: 100%; /* Ensure the container takes the full width */
-    padding: 20px; /* Add padding for spacing */
+    justify-content: space-around; 
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px; 
 }
 
 .director-item {
-    flex: 1; /* This allows the boxes to grow and take up available space */
-    max-width: calc(33.333% - 40px); /* Subtract the sum of left and right padding/margins */
+    flex: 1;
+    max-width: calc(33.333% - 40px);
     margin: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     background: white;
